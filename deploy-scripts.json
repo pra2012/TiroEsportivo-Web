@@ -1,0 +1,19 @@
+{
+  "name": "tiroesportivo-deploy",
+  "version": "1.0.0",
+  "description": "Scripts de deploy para TiroEsportivo no Cloudflare",
+  "scripts": {
+    "build": "pnpm run build",
+    "deploy:pages": "wrangler pages deploy dist --project-name=tiroesportivo",
+    "deploy:worker": "wrangler deploy",
+    "deploy:db": "wrangler d1 execute tiroesportivo-db --file=database/schema.sql && wrangler d1 execute tiroesportivo-db --file=database/seed.sql",
+    "dev:pages": "wrangler pages dev dist",
+    "dev:worker": "wrangler dev",
+    "setup:db": "wrangler d1 create tiroesportivo-db",
+    "preview": "pnpm run build && wrangler pages dev dist"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}
+
