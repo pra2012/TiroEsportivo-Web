@@ -1,42 +1,6 @@
-# Configuração do Cloudflare Workers e D1 para TiroEsportivo
-
-name = "tiroesportivo"
-main = "src/worker.js"
-compatibility_date = "2024-01-01"
-
-# Configuração do Cloudflare Pages
-pages_build_output_dir = "dist"
-
-# Configuração do banco de dados D1
-[[d1_databases]]
-binding = "DB"
-database_name = "tiroesportivo-db"
-database_id = "your-database-id-here"
-
-# Variáveis de ambiente
-[vars]
-ENVIRONMENT = "production"
-APP_NAME = "TiroEsportivo"
-
-# Configuração para desenvolvimento local
-[env.development]
-name = "tiroesportivo-dev"
-
-[env.development.vars]
-ENVIRONMENT = "development"
-
-# Configuração de CORS
-[env.production.vars]
-CORS_ORIGIN = "*"
-
-# Configuração de rotas para Pages
-[[routes]]
-pattern = "api/*"
-zone_name = "your-domain.com"
-
-# Configuração de KV (se necessário para sessões)
-# [[kv_namespaces]]
-# binding = "SESSIONS"
-# id = "your-kv-namespace-id"
-# preview_id = "your-preview-kv-namespace-id"
-
+name = "TiroEsportivo-Web"
+pages_build_output_dir = "./dist"
+[env.preview]
+# (any preview-specific config)
+[env.production]
+# (any production-specific config)
